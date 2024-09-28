@@ -3,11 +3,11 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 5px; /* Slim line width when collapsed */
-    transition: width 0.3s ease;
+    width: 50px; /* Collapsed width */
     height: 100vh;
     background-color: #f8f9fa;
     z-index: 1000;
+    transition: width 0.3s ease; /* Smooth transition for width */
 }
 
 .sidebar-container:hover {

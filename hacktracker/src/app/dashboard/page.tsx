@@ -7,8 +7,8 @@ import { haversineDistance } from '../components/utils'; // Adjust the path as n
 const PictureUrls = [
     {
         title: "HACK TRACKER",
-        description: "Welcome to HACK TRACKER",
-        description2: "Are you ready to unleash your creativity and technical skills? Our platform connects you with hackathons tailored just for you!"
+        description: "Hack Tracker",
+        description2: "Here are our recommendations based on your information:"
     },
 ];
 

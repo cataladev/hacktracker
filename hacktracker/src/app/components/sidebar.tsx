@@ -32,16 +32,21 @@ const Sidebar: React.FC<SidebarProps> = ({
 
         if (input) {
             try {
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${input}&format=json&addressdetails=1&limit=5`);
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&addressdetails=1&limit=5`);
                 const data = await response.json();
-
-                const filteredSuggestions = data.map((item: any) => item.display_name).filter(Boolean);
-                setSuggestions(filteredSuggestions);
+                
+                if (Array.isArray(data) && data.length > 0) {
+                    const filteredSuggestions = data.map((item: any) => item.display_name).filter(Boolean);
+                    setSuggestions(filteredSuggestions);
+                } else {
+                    setSuggestions([]); // Clear suggestions if no data
+                }
             } catch (error) {
                 console.error("Error fetching locations:", error);
+                setError("Failed to fetch locations. Please try again."); // Set an error message
             }
         } else {
-            setSuggestions([]);
+            setSuggestions([]); // Clear suggestions if input is empty
         }
     };
 
@@ -82,21 +87,23 @@ const Sidebar: React.FC<SidebarProps> = ({
                         )}
                         {error && <p className="error-message">{error}</p>}
                     </li>
-                    <li>
+                    <li className="distance-container">
                         <input
-                            type="number"
+                            type="range"
+                            min="0"
+                            max="100"
                             value={distanceInput}
                             onChange={(e) => setDistanceInput(Number(e.target.value))}
-                            placeholder="Max distance (km)"
-                            className="distance-input"
+                            className="distance-slider"
                         />
+                        <span>{distanceInput} KM</span>
                     </li>
                     <li>
                         <label>
                             <input
                                 type="checkbox"
                                 checked={isVirtual}
-                                onChange={toggleIsVirtual} // Directly call the toggle function
+                                onChange={toggleIsVirtual}
                             />
                             Virtual
                         </label>
@@ -104,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                             <input
                                 type="checkbox"
                                 checked={isInPerson}
-                                onChange={toggleIsInPerson} // Directly call the toggle function
+                                onChange={toggleIsInPerson}
                             />
                             In-Person
                         </label>
