@@ -1,0 +1,116 @@
+/* styles.css */
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 5px; /* Slim line width when collapsed */
+    transition: width 0.3s ease;
+    height: 100vh;
+    background-color: #f8f9fa;
+    z-index: 1000;
+}
+
+.sidebar-container:hover {
+    width: 250px; /* Expanded width */
+}
+
+.sidebar {
+    height: 100%;
+    padding: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-container:hover .sidebar li {
+    opacity: 1; /* Show text when sidebar is expanded */
+}
+
+.distance-container {
+    margin-top: 10px; /* Space above the slider */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.sidebar-container:hover .distance-container {
+    opacity: 1; /* Show when sidebar is expanded */
+}
+
+.save-container {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.sidebar-container:hover .save-container {
+    opacity: 1; /* Show when sidebar is expanded */
+}
+
+.location-input, .date-input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.distance-slider {
+    width: 100%; /* Make the slider fill the width */
+}
+
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    max-height: 150px; /* Limit height for suggestions */
+    overflow-y: auto; /* Scroll if too many suggestions */
+}
+
+.suggestions-list li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #e0e0e0; /* Highlight on hover */
+}
+
+.error-message {
+    color: red; /* Error message color */
+}
+
+.main {
+    display: flex;
+    margin-left: 5px; /* Adjust main content to account for the slim line */
+}
+
+.flex-grow {
+    flex: 1; /* Allow this div to grow and fill the available space */
+}
+
+/* Save Button Styles */
+.save-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
