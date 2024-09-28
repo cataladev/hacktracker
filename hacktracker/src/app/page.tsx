@@ -21,21 +21,16 @@ export default function Home() {
       <div className="flex flex-wrap justify-center w-full">
         {PictureUrls.map((image, index) => (
           <div key={index} className="m-4 text-center max-w-2xl"> 
-
-            {/* Wrapping image with a specific width limit */}
-            <div className="w-64 mx-auto"> {/* Set width for the image */}
+            <div className="w-64 mx-auto animate-fadeIn">
               <img 
                 src={image.url} 
                 alt={`Image ${index + 1}`} 
                 className="w-full h-auto object-cover" /> 
             </div>
-
-            {/* Wrapping text with a different width limit */}
-            <div className="m-4 max-w-6xl"> {/* Set width for the text */}
+            <div className="m-4 max-w-6xl"> 
               <p style={{ fontWeight: 'bold', fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }} className="text-sm text-teal-600 mb-2"> 
                 {image.description}
               </p>
-
               <p style={{ fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }} className="text-sm w-full text-teal-600 mb-2"> 
                 {image.description2}
               </p>
