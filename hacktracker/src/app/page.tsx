@@ -1,67 +1,49 @@
 import Link from "next/link";
 
-import { LatestPost } from "~/app/_components/post";
-import { getServerAuthSession } from "~/server/auth";
-import { api, HydrateClient } from "~/trpc/server";
+const  PictureUrls  =  [
+    {
+      url:"https://utfs.io/f/6f972ORmLdsFhAQHM5u7PdF3GLyes9zIiBUtnDSvJkRZq1mo",
+      title: "HACK TRACKER", 
+      description: "Welcome to HACK TRACKER",
+      description2: "Are you ready to unleash your creativity and technical skills? Our platform connects you with hackathons tailored just for you! By analyzing your location, educational background, and interests, we curate a list of exciting hackathon events where you can collaborate with like-minded individuals, innovate groundbreaking solutions, and take your skills to the next level. Whether you're a seasoned developer, a design enthusiast, or a first-time participant, we have opportunities that fit your profile. Join us to network with industry leaders, showcase your talents, and even win fantastic prizes! Your next big challenge is just a click away—lets hack the future together!"
 
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-  const session = await getServerAuthSession();
 
-  void api.post.getLatest.prefetch();
+    },
+];
 
+
+
+
+
+export default function Home() {
   return (
-    <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
-            </p>
+    <main className="p-4"> 
+      <div className="flex flex-wrap justify-center w-full">
+        {PictureUrls.map((image, index) => (
+          <div key={index} className="m-4 text-center max-w-2xl"> 
 
-            <div className="flex flex-col items-center justify-center gap-4">
-              <p className="text-center text-2xl text-white">
-                {session && <span>Logged in as {session.user?.name}</span>}
-              </p>
-              <Link
-                href={session ? "/api/auth/signout" : "/api/auth/signin"}
-                className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-              >
-                {session ? "Sign out" : "Sign in"}
-              </Link>
+            {/* Wrapping image with a specific width limit */}
+            <div className="w-64 mx-auto"> {/* Set width for the image */}
+              <img 
+                src={image.url} 
+                alt={`Image ${index + 1}`} 
+                className="w-full h-auto object-cover" /> 
             </div>
-          </div>
 
-          {session?.user && <LatestPost />}
-        </div>
-      </main>
-    </HydrateClient>
+            {/* Wrapping text with a different width limit */}
+            <div className="m-4 max-w-6xl"> {/* Set width for the text */}
+              <p style={{ fontWeight: 'bold', fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }} className="text-sm text-teal-600 mb-2"> 
+                {image.description}
+              </p>
+
+              <p style={{ fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }} className="text-sm w-full text-teal-600 mb-2"> 
+                {image.description2}
+              </p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
