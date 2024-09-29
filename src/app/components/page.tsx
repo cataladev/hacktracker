@@ -1,8 +1,8 @@
-"use client"; // Marking this component as a client component
+"use client"; 
 
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/sidebar';
-import { haversineDistance } from '../components/utils'; // Adjust the path as needed
+import { haversineDistance } from '../components/utils';
 
 const PictureUrls = [
     {
@@ -12,7 +12,6 @@ const PictureUrls = [
     },
 ];
 
-// Function to get coordinates for a city/state using the Nominatim API
 const getCoordinatesForCity = async (location: string): Promise<[number, number] | null> => {
     try {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`);

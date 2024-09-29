@@ -15,7 +15,7 @@ body {
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #ff0000; /* Change this to your desired color */
+    background: #ff0000; 
     border-radius: 50%;
     cursor: pointer;
   }
@@ -23,7 +23,7 @@ body {
   .custom-range::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    background: #ff0000; /* Change this to your desired color */
+    background: #ff0000; 
     border-radius: 50%;
     cursor: pointer;
   }
@@ -31,7 +31,7 @@ body {
   .custom-range::-ms-thumb {
     width: 20px;
     height: 20px;
-    background: #ff0000; /* Change this to your desired color */
+    background: #ff0000; 
     border-radius: 50%;
     cursor: pointer;
   }

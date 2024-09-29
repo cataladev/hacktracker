@@ -1,7 +1,7 @@
-"use client"; // Mark this component as a client component
+"use client"; 
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; // Importing useRouter from next/navigation
+import { useRouter } from "next/navigation"; 
 
 interface Hackathon {
   name: string;
@@ -47,11 +47,11 @@ const haversineDistance = (
       Math.cos(toRadians(lat2)) *
       Math.sin(dLon / 2) ** 2;
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Returns the distance in kilometers
+  return R * c; 
 };
 
 const Dashboard = () => {
-  const router = useRouter(); // Use useRouter for navigation
+  const router = useRouter(); 
   const [recommendedHackathons, setRecommendedHackathons] = useState<Hackathon[]>([]);
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -108,11 +108,11 @@ const Dashboard = () => {
         <h1 className="text-3xl text-white flex justify-center font-bold mb-4" style={{ paddingBottom: '15px' }}>
           Recommended Hackathons
         </h1>
-        <ul className="space-y-4"> {/* Increased space between items */}
+        <ul className="space-y-4"> 
           {recommendedHackathons.slice(0, visibleCount).map((hackathon, index) => (
-            <li key={index} className="flex border p-4 rounded bg-black bg-opacity-85 items-center"> {/* Align items center */}
+            <li key={index} className="flex border p-4 rounded bg-black bg-opacity-85 items-center"> 
               <img src={hackathon.image} alt={hackathon.name} className="w-1/5 h-auto mr-4" />
-              <div className="text-white flex flex-col gap-2"> {/* Added gap for spacing */}
+              <div className="text-white flex flex-col gap-2"> 
                 <h2 className="font-bold">{hackathon.name}</h2>
                 <p>Dates: {hackathon.date}</p>
                 <p>Modality: {hackathon.modality}</p>
@@ -126,13 +126,13 @@ const Dashboard = () => {
             </li>
           ))}
         </ul>
-        <div className="flex justify-between mt-4"> {/* Align buttons horizontally */}
+        <div className="flex justify-between mt-4"> 
           {visibleCount < recommendedHackathons.length && (
-            <button onClick={handleViewMore} className="bg-[#e63946] text-white px-4 py-2 rounded">
+            <button onClick={handleViewMore} className="bg-[#e63946] text-white px-4 py-2 rounded transition-transform transform hover:scale-110">
               View More
             </button>
           )}
-          <button onClick={() => router.push('/profile')} className="bg-[#e63946] text-white px-4 py-2 rounded">
+          <button onClick={() => router.push('/profile')} className="bg-[#e63946] text-white px-4 py-2 rounded transition-transform transform hover:scale-110">
             Change Settings
           </button>
         </div>

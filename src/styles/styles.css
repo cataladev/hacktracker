@@ -1,19 +1,17 @@
-/* styles.css */
 
-/* Sidebar Styles */
 .sidebar-container {
     position: fixed;
     left: 0;
     top: 0;
-    width: 50px; /* Collapsed width */
+    width: 50px; 
     height: 100vh;
     background-color: #f8f9fa;
     z-index: 1000;
-    transition: width 0.3s ease; /* Smooth transition for width */
+    transition: width 0.3s ease; 
 }
 
 .sidebar-container:hover {
-    width: 250px; /* Expanded width */
+    width: 250px; 
 }
 
 .sidebar {
@@ -34,14 +32,13 @@
 }
 
 .sidebar-container:hover .sidebar li {
-    opacity: 1; /* Show text when sidebar is expanded */
+    opacity: 1; 
 }
 
-/* Distance Slider Styles */
 .distance-container {
-    margin-top: 10px; /* Space above the slider */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease; /* Smooth transition */
+    margin-top: 10px; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
 }
 
 .sidebar-container:hover .distance-container {

@@ -1,4 +1,4 @@
-// app/api/travel/route.ts
+
 import { NextResponse } from 'next/server';
 
 let travelData: Array<{ location: string; startDate: string; endDate: string; distance: number; modality: string }> = [];
