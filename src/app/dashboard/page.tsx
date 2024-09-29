@@ -28,17 +28,17 @@ const fetchCoordinates = async (location: string) => {
 
 const haversineDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
   const toRadians = (angle: number) => (angle * Math.PI) / 180;
-  const R = 6371; // Earth's radius in kilometers
+  const R = 6371;
   const dLat = toRadians(lat2 - lat1);
   const dLon = toRadians(lon2 - lon1);
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Distance in kilometers
+  return R * c; 
 };
 
 const Dashboard = () => {
   const [recommendedHackathons, setRecommendedHackathons] = useState<Hackathon[]>([]);
-  const [visibleCount, setVisibleCount] = useState(3); // Start with 3 visible hackathons
+  const [visibleCount, setVisibleCount] = useState(3); 
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData') || 'null');
@@ -53,7 +53,7 @@ const Dashboard = () => {
                 const distanceToHackathon = haversineDistance(userCoords.lat, userCoords.lon, hackathon.latitude || 0, hackathon.longitude || 0);
                 return { ...hackathon, distance: distanceToHackathon };
               })
-              .filter(hackathon => hackathon.distance <= userData.distance); // Only filter by distance
+              .filter(hackathon => hackathon.distance <= userData.distance);
 
             setRecommendedHackathons(filteredHackathons);
           }).catch(error => {
@@ -76,8 +76,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-white">Recommended Hackathons</h1>
+    <div className="p-4 animate-fadeIn">
+      <h1 className="text-sm text-white ">Recommended Hackathons
+         </h1>
       <ul>
         {recommendedHackathons.slice(0, visibleCount).map((hackathon, index) => (
           <li key={index} className="mb-4 flex border p-4 rounded bg-gray-800">

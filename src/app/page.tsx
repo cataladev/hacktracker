@@ -4,8 +4,7 @@ const PictureUrls = [
   {
     url: "https://utfs.io/f/6f972ORmLdsFhAQHM5u7PdF3GLyes9zIiBUtnDSvJkRZq1mo",
     title: "HACK TRACKER",
-    description:
-      "Find your next hack now!",
+    description: "Find your next hack now!",
   },
 ];
 

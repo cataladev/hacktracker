@@ -98,7 +98,8 @@ const InputPage = () => {
         <form 
           onSubmit={handleSubmit} 
           className="p-8 rounded border border-white transition duration-300 hover:border-red-600 shadow-md w-full max-w-md animate-fadeIn" 
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+          style={{ 
+            backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
         >
           <input
             type="text"
