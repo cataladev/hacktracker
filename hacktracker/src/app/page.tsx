@@ -5,13 +5,13 @@ const PictureUrls = [
     url: "https://utfs.io/f/6f972ORmLdsFhAQHM5u7PdF3GLyes9zIiBUtnDSvJkRZq1mo",
     title: "HACK TRACKER",
     description:
-      "Discover hackathons tailored to your location, preferred modality, and travel distance—connect, innovate, and showcase your talent!",
+      "Find your next hack now!",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="relative p-4">
+    <main className="relative p-4 min-h-screen">
       <video
         autoPlay
         muted
@@ -32,12 +32,13 @@ export default function Home() {
               />
             </div>
             <div
-               className="m-4 max-w-6xl animate-fadeIn border border-black hover:border-red-600 transition duration-300 p-4 bg-black bg-opacity-70 transform hover:scale-110">
+              className="m-4 max-w-6xl animate-fadeIn border border-black transition duration-300 p-4 bg-black bg-opacity-70 transform hover:scale-110"
+            >
               <p
                 style={{
                   fontWeight: "bold",
-                  fontFamily: "Poppins",
-                  fontSize: "60px",
+                  fontFamily: "chakra", // Updated font family
+                  fontSize: "65px",
                   color: "#ffffff",
                   padding: "15px",
                 }}
@@ -47,9 +48,10 @@ export default function Home() {
               </p>
               <p
                 style={{
-                  fontFamily: "hind",
-                  fontSize: "20px",
+                  fontFamily: "chakra", 
+                  fontSize: "25px",
                   color: "#ffffff",
+                  padding: "25px",
                 }}
                 className="text-sm w-full text-white-600 mb-2 animate-fadeIn"
               >
@@ -59,6 +61,7 @@ export default function Home() {
           </div>
         ))}
       </div>
+
       <div className="flex justify-center mt-4">
         <Link href="/profile">
           <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:border-white-600 hover:bg-[#8b0000] animate-fadeIn transform transition duration-300 hover:scale-110">

@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         hind: ['Hind Siliguri', 'sans-serif'],
+        chakra: ['Chakra Petch', 'sans-serif'],
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
       keyframes: {
