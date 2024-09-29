@@ -49,8 +49,6 @@ const InputPage = () => {
 
     setSelectedLocation({ city, state, country });
     setLocation(`${city ? city + ', ' : ''}${state}${country ? ', ' + country : ''}`);
-    
-    // Clear suggestions and reset the input value
     setSuggestions([]);
   };
 
@@ -115,7 +113,6 @@ const InputPage = () => {
                 const state = suggestion.address.state || '';
                 const country = suggestion.address.country || '';
 
-                // Build display name ensuring no leading commas and correct formatting
                 let displayName = '';
                 if (city) {
                   displayName += city;
@@ -155,13 +152,13 @@ const InputPage = () => {
                 type="number"
                 value={distance}
                 onChange={handleDistanceInputChange}
-                onBlur={handleDistanceEditToggle} // Stop editing on blur
+                onBlur={handleDistanceEditToggle} 
                 className="text-white bg-transparent border-b border-white w-20 ml-2"
-                onFocus={(e) => e.target.select()} // Select input value on focus
+                onFocus={(e) => e.target.select()}
               />
             ) : (
               <span 
-                onClick={handleDistanceEditToggle} // Make it editable on click
+                onClick={handleDistanceEditToggle} 
                 className="cursor-pointer ml-2"
               >
                 {distance} km
