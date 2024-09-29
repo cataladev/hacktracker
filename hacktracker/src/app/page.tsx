@@ -23,16 +23,16 @@ export default function Home() {
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div className="m-4 max-w-6xl animate-fadeIn">
+            <div className="m-4 max-w-6xl animate-fadeIn border border-white hover:border-red-600 transition duration-300 p-4">
               <p
                 style={{
                   fontWeight: "bold",
                   fontFamily: "Poppins",
                   fontSize: "40px",
-                  color: "#a8dadc",
+                  color: "#ffffff",
                   padding: "15px",
                 }}
-                className="text-sm text-teal-600 mb-2"
+                className="text-sm text-white-600 mb-2 animate-fadeIn"
               >
                 {image.description}
               </p>
@@ -40,9 +40,9 @@ export default function Home() {
                 style={{
                   fontFamily: "hind",
                   fontSize: "20px",
-                  color: "#a8dadc",
+                  color: "#ffffff",
                 }}
-                className="text-sm w-full text-teal-600 mb-2"
+                className="text-sm w-full text-white-600 mb-2 animate-fadeIn"
               >
                 {image.description2}
               </p>
@@ -52,7 +52,7 @@ export default function Home() {
       </div>
       <div className="flex justify-center mt-4">
         <Link href="/dashboard">
-          <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:bg-[#d62839] animate-fadeIn">
+          <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:border-white-600 hover:bg-[#d62839] animate-fadeIn">
             Start Now!
           </button>
         </Link>
