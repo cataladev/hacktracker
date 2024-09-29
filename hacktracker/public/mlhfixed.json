@@ -1,0 +1,692 @@
+[
+    {
+        "name": "HackGT 11",
+        "date": "SEP 27TH - 29TH",
+        "location": "Atlanta, Georgia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/066/thumb/sq2.png?1727199601",
+        "url": "https://hack.gt/",
+        "latitude": 33.7489924,
+        "longitude": -84.3902644
+    },
+    {
+        "name": "HackTheSpace Season 2",
+        "date": "SEP 27TH - 28TH",
+        "location": "Bhilai, Chhattisgarh",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/104/thumb/MLH_Event_Background_300_x_300.png?1722597987",
+        "url": "https://hackthespace.co/",
+        "latitude": 21.2120677,
+        "longitude": 81.3732849
+    },
+    {
+        "name": "ShellHacks",
+        "date": "SEP 27TH - 29TH",
+        "location": "Miami, Florida",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/037/thumb/Banner_for_MLH.png?1721315006",
+        "url": "https://www.shellhacks.net/",
+        "latitude": 25.7741728,
+        "longitude": -80.19362
+    },
+    {
+        "name": "TechNova",
+        "date": "SEP 27TH - 29TH",
+        "location": "Waterloo, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/060/thumb/technova_backsplash.png?1720113300",
+        "url": "https://itstechnova.org/",
+        "latitude": 43.4652699,
+        "longitude": -80.5222961
+    },
+    {
+        "name": "GirlHacks",
+        "date": "SEP 28TH - 29TH",
+        "location": "Newark, New Jersey",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/055/thumb/GH24-MLH-BG.png?1721148941",
+        "url": "https://www.girlhacks.tech/",
+        "latitude": 40.735657,
+        "longitude": -74.1723667
+    },
+    {
+        "name": "hackUMBC",
+        "date": "SEP 28TH - 29TH",
+        "location": "Baltimore City, Maryland",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/111/thumb/hackText24.f354d43fdc658e95656d_%282%29.png?1724175456",
+        "url": "https://www.hackumbc.tech/",
+        "latitude": 39.32597265,
+        "longitude": -76.59675856233282
+    },
+    {
+        "name": "MHacks 2024",
+        "date": "SEP 28TH - 29TH",
+        "location": "Ann Arbor, Michigan",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/131/thumb/site-bg.png?1727107767",
+        "url": "https://mhacks.org/",
+        "latitude": 42.2813722,
+        "longitude": -83.7484616
+    },
+    {
+        "name": "SteelHacks",
+        "date": "SEP 28TH - 29TH",
+        "location": "Pittsburgh, Pennsylvania",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/110/thumb/background-square_1.png?1722608365",
+        "url": "https://steelhacks.com/",
+        "latitude": 40.4416941,
+        "longitude": -79.9900861
+    },
+    {
+        "name": "sunhacks",
+        "date": "SEP 28TH - 29TH",
+        "location": "Tempe, Arizona",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/105/thumb/Banner.png?1723685236",
+        "url": "https://sunhacks.io/",
+        "latitude": 33.4255117,
+        "longitude": -111.940016
+    },
+    {
+        "name": "VandyHacks",
+        "date": "SEP 28TH - 29TH",
+        "location": "Nashville, Tennessee",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/107/thumb/pNGjIWqy_400x400.jpg?1722608152",
+        "url": "https://vandyhacks.org/",
+        "latitude": 36.1622767,
+        "longitude": -86.7742984
+    },
+    {
+        "name": "IdeaHack!",
+        "date": "OCT 3RD - 4TH",
+        "location": "Vallendar, Rheinland Pfalz",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/127/thumb/66a1d4df33236bb0b019bb42_BMT_white.png?1725774588",
+        "url": "https://businessmeetstech.de/",
+        "latitude": 50.4001381,
+        "longitude": 7.6142479
+    },
+    {
+        "name": "BigRed//Hacks",
+        "date": "OCT 4TH - 6TH",
+        "location": "Ithaca, New York",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/123/thumb/brh-logo-CpBFz43O.png?1725773944",
+        "url": "https://www.bigredhacks.com/",
+        "latitude": 42.437417499999995,
+        "longitude": -76.54837235139263
+    },
+    {
+        "name": "Global Hack Week: Open Source",
+        "date": "OCT 4TH - 10TH",
+        "location": "Everywhere, Online",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/114/thumb/devpost_icon.jpg?1724255880",
+        "url": "https://events.mlh.io/events/11512",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Knight Hacks VII",
+        "date": "OCT 4TH - 6TH",
+        "location": "Orlando, Florida",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/048/thumb/backsplash_%281%29.png?1719904216",
+        "url": "https://2024.knighthacks.org/",
+        "latitude": 28.5421109,
+        "longitude": -81.3790304
+    },
+    {
+        "name": "YHack",
+        "date": "OCT 4TH - 6TH",
+        "location": "New Haven, Connecticut",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/124/thumb/4oUN6_V-_400x400.jpg?1725774266",
+        "url": "https://yhack.org/",
+        "latitude": 41.3082138,
+        "longitude": -72.9250518
+    },
+    {
+        "name": "DivHacks 2024: Tech for Social Good",
+        "date": "OCT 5TH - 6TH",
+        "location": "New York, New York",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/044/thumb/Updated_Backsplash.png?1720013756",
+        "url": "https://www.columbiadivhacks.org/",
+        "latitude": 40.7127281,
+        "longitude": -74.0060152
+    },
+    {
+        "name": "HackSMU VI",
+        "date": "OCT 5TH - 6TH",
+        "location": "Dallas, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/040/thumb/MainLogo_%281%29.png?1719461835",
+        "url": "https://hacksmu.org/",
+        "latitude": 32.7762719,
+        "longitude": -96.7968559
+    },
+    {
+        "name": "Owlhacks",
+        "date": "OCT 5TH - 6TH",
+        "location": "Philadelphia, Pennsylvania",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/113/thumb/IMG_1399_%281%29.png?1724099960",
+        "url": "https://www.owlhacks.com/",
+        "latitude": 39.9527237,
+        "longitude": -75.1635262
+    },
+    {
+        "name": "HackHarvard",
+        "date": "OCT 11TH - 13TH",
+        "location": "Cambridge, MA",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/128/thumb/HackHarvard_2024_Hack_4_Impact.png?1725774720",
+        "url": "https://www.hackharvard.io/",
+        "latitude": 42.3656347,
+        "longitude": -71.1040018
+    },
+    {
+        "name": "Open Source Hackfest",
+        "date": "OCT 11TH - 13TH",
+        "location": "Everywhere, Worldwide",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/070/thumb/devpost-thumbnail.jpg?1727156554",
+        "url": "https://events.mlh.io/events/11515",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "DubHacks",
+        "date": "OCT 12TH - 13TH",
+        "location": "Seattle, Washington",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/038/thumb/Cover_-_MLH.png?1719524466",
+        "url": "https://dh24.dubhacks.co/",
+        "latitude": 47.6038321,
+        "longitude": -122.330062
+    },
+    {
+        "name": "Hack Dearborn 3",
+        "date": "OCT 12TH - 13TH",
+        "location": "Dearborn, Michigan",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/041/thumb/backsplash_mlh_hd3.png?1719462062",
+        "url": "https://www.hackdearborn.org/",
+        "latitude": 42.3222599,
+        "longitude": -83.1763145
+    },
+    {
+        "name": "HackPSU",
+        "date": "OCT 12TH - 13TH",
+        "location": "University Park, Pennsylvania",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/118/thumb/HackPSU_Fall_Logo_2024_%281%29.png?1726686946",
+        "url": "https://www.hackpsu.org/",
+        "latitude": 35.2565086,
+        "longitude": -80.8729493
+    },
+    {
+        "name": "HackUTA 2024",
+        "date": "OCT 12TH - 13TH",
+        "location": "Arlington, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/065/thumb/HackUTA_backsplash.jpg?1720191148",
+        "url": "https://www.hackuta.org/",
+        "latitude": 32.7355816,
+        "longitude": -97.1071186
+    },
+    {
+        "name": "Make-A-Ton 7.0",
+        "date": "OCT 19TH - 20TH",
+        "location": "Kochi, Kerala",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/130/thumb/MLH_Backsplash.png?1725905611",
+        "url": "https://makeaton.in/",
+        "latitude": 9.9674277,
+        "longitude": 76.2454436
+    },
+    {
+        "name": "AI ATL",
+        "date": "OCT 25TH - 27TH",
+        "location": "Atlanta, GA",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/119/thumb/AI_ATL_MLH_Background.jpg?1726000632",
+        "url": "https://aiatl.io/",
+        "latitude": 33.7489924,
+        "longitude": -84.3902644
+    },
+    {
+        "name": "HackRU",
+        "date": "OCT 26TH - 27TH",
+        "location": "New Brunswick, New Jersey",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/116/thumb/main_asset_dark_mode.png?1725547818",
+        "url": "https://hackru.org/",
+        "latitude": 40.4862174,
+        "longitude": -74.4518173
+    },
+    {
+        "name": "HackUNT",
+        "date": "OCT 26TH - 27TH",
+        "location": "Denton, TX",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/129/thumb/HackUNT_BackSplash.png?1725774797",
+        "url": "https://unthackathon.com/",
+        "latitude": 33.1838787,
+        "longitude": -97.1413417
+    },
+    {
+        "name": "NewHacks 2024",
+        "date": "OCT 26TH - 27TH",
+        "location": "Toronto, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/058/thumb/newhacks__with_backsplash_.png?1720109703",
+        "url": "http://newhacks.ca/",
+        "latitude": 43.6534817,
+        "longitude": -79.3839347
+    },
+    {
+        "name": "Technica",
+        "date": "OCT 26TH - 27TH",
+        "location": "College Park, Maryland",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/059/thumb/hero_img_no_chara_1.png?1720111515",
+        "url": "https://gotechnica.org/",
+        "latitude": 38.980666,
+        "longitude": -76.9369189
+    },
+    {
+        "name": "DurHack",
+        "date": "NOV 2ND - 3RD",
+        "location": "Durham, County Durham",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/034/thumb/medium_square_%281%29.png?1719248670",
+        "url": "https://durhack.com/",
+        "latitude": 54.7770139,
+        "longitude": -1.5756205
+    },
+    {
+        "name": "FrostHacks",
+        "date": "NOV 8TH - 10TH",
+        "location": "Hooghly, West Bengal",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/132/thumb/backsplash4_new.png?1727446416",
+        "url": "https://www.frosthacks.in/",
+        "latitude": 22.90994025,
+        "longitude": 88.01208246766723
+    },
+    {
+        "name": "Global Hack Week: Career",
+        "date": "NOV 8TH - 14TH",
+        "location": "Everywhere, Online",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/115/thumb/devpost_icon.jpg?1724330231",
+        "url": "https://events.mlh.io/events/11595",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Hack This Fall 2024 (Virtual)",
+        "date": "NOV 8TH - 10TH",
+        "location": "Everywhere, Online",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/043/thumb/backsplash.png?1719495752",
+        "url": "https://hackathon.hackthisfall.tech/virtual",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "HackUMass XII",
+        "date": "NOV 8TH - 10TH",
+        "location": "Amherst, Massachusetts",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/052/thumb/300x300.png?1720108643",
+        "url": "https://hackumass.com/",
+        "latitude": 42.3731948,
+        "longitude": -72.5198761
+    },
+    {
+        "name": "UniHack 6",
+        "date": "NOV 8TH - 10TH",
+        "location": "Timisoara, Timis",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/047/thumb/UniHack_BackSplash_LOGO.png?1719534842",
+        "url": "https://unihack.eu/",
+        "latitude": 45.7538355,
+        "longitude": 21.2257474
+    },
+    {
+        "name": "GreatUniHack",
+        "date": "NOV 9TH - 10TH",
+        "location": "Manchester, Greater Manchester",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/054/thumb/mlh_backsplash.png?1720441522",
+        "url": "https://greatunihack.com/",
+        "latitude": 53.4794892,
+        "longitude": -2.2451148
+    },
+    {
+        "name": "hackCBS",
+        "date": "NOV 9TH - 10TH",
+        "location": "New Delhi, India",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/050/thumb/Backsplash_7.0.png?1719990363",
+        "url": "https://hackcbs.tech/",
+        "latitude": 28.6138954,
+        "longitude": 77.2090057
+    },
+    {
+        "name": "HackRPI",
+        "date": "NOV 9TH - 10TH",
+        "location": "Troy, New York",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/068/thumb/2-_2024_Main_Event_Image_%28300_x_300_px%29.png?1726580552",
+        "url": "https://www.hackrpi.com/",
+        "latitude": 42.7284117,
+        "longitude": -73.6917878
+    },
+    {
+        "name": "KU Hackfest 2024",
+        "date": "NOV 15TH - 17TH",
+        "location": "Kathmandu, Nepal",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/026/thumb/WhatsApp_Image_2023-06-28_at_6.26.54_PM.jpeg?1718963277",
+        "url": "https://www.kuhackfest.com/",
+        "latitude": 27.708317,
+        "longitude": 85.3205817
+    },
+    {
+        "name": "HackUTD",
+        "date": "NOV 16TH - 17TH",
+        "location": "Richardson, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/046/thumb/mlh_title_smol.jpg?1719532169",
+        "url": "https://24.hackutd.co/",
+        "latitude": 32.9481789,
+        "longitude": -96.7297206
+    },
+    {
+        "name": "Hack Western 11",
+        "date": "NOV 29TH - DEC 1ST",
+        "location": "London, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/062/thumb/Hack-Western-Logo.png?1720189590",
+        "url": "https://www.hackwestern.com/",
+        "latitude": 42.9832406,
+        "longitude": -81.243372
+    },
+    {
+        "name": "Hacks for Hackers",
+        "date": "JAN 3RD - 5TH",
+        "location": "Everywhere, Worldwide",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/071/thumb/devpost-thumbnail.jpg?1721824504",
+        "url": "https://events.mlh.io/events/11516",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "nwHacks 2025",
+        "date": "JAN 18TH - 19TH",
+        "location": "Vancouver, British Columbia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/030/thumb/background_square.png?1718994004",
+        "url": "https://nwhacks.io/",
+        "latitude": 49.2608724,
+        "longitude": -123.113952
+    },
+    {
+        "name": "Hoya Hacks",
+        "date": "JAN 24TH - 26TH",
+        "location": "Washington, District of Columbia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/025/thumb/HH25_%281%29.png?1719525582",
+        "url": "https://www.hoyahacks.com/",
+        "latitude": 38.8950368,
+        "longitude": -77.0365427
+    },
+    {
+        "name": "QHacks",
+        "date": "JAN 24TH - 26TH",
+        "location": "Kingston, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/029/thumb/QHacks_New_Backsplash.png?1720470332",
+        "url": "https://qhacks.io/",
+        "latitude": 44.230687,
+        "longitude": -76.481323
+    },
+    {
+        "name": "Rose Hack 2025",
+        "date": "JAN 24TH - 25TH",
+        "location": "Riverside, California",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/045/thumb/rh25_tentative_backsplash_%281%29.png?1719531021",
+        "url": "https://www.rosehack.com/",
+        "latitude": 33.7219991,
+        "longitude": -116.0372472
+    },
+    {
+        "name": "ConUHacks",
+        "date": "FEB 1ST - 2ND",
+        "location": "Montreal, Quebec",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/064/thumb/Background.png?1720194852",
+        "url": "https://mailinglist.conuhacks.io/",
+        "latitude": 45.5031824,
+        "longitude": -73.5698065
+    },
+    {
+        "name": "cuHacking",
+        "date": "FEB 7TH - 9TH",
+        "location": "Ottawa, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/031/thumb/MLH_Season_Background.png?1719008231",
+        "url": "https://cuhacking.ca/",
+        "latitude": 45.4208777,
+        "longitude": -75.6901106
+    },
+    {
+        "name": "Hacklytics",
+        "date": "FEB 7TH - 9TH",
+        "location": "Atlanta, Georgia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/056/thumb/image_%288%29.png?1720447572",
+        "url": "https://hacklytics.io/",
+        "latitude": 33.7489924,
+        "longitude": -84.3902644
+    },
+    {
+        "name": "UGAHacks X",
+        "date": "FEB 7TH - 9TH",
+        "location": "Athens, Georgia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/049/thumb/UHX_banner_300x300.png?1719921194",
+        "url": "https://x.ugahacks.com/",
+        "latitude": 33.9597677,
+        "longitude": -83.376398
+    },
+    {
+        "name": "Hack(H)er413",
+        "date": "FEB 15TH - 16TH",
+        "location": "Amherst, Massachusetts",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/051/thumb/Hac_H_er413_Backdrop_2024.png?1720005489",
+        "url": "https://www.hackher413.com/",
+        "latitude": 42.3731948,
+        "longitude": -72.5198761
+    },
+    {
+        "name": "RevolutionUC",
+        "date": "FEB 22ND - 23RD",
+        "location": "Cincinnati, Ohio",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/063/thumb/revolutionuc_backsplash.jpeg?1720189923",
+        "url": "https://revolutionuc.com/",
+        "latitude": 39.1014537,
+        "longitude": -84.5124602
+    },
+    {
+        "name": "cmd-f 2025",
+        "date": "MAR 8TH - 9TH",
+        "location": "Vancouver, British Columbia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/035/thumb/Thumbnail_%281%29.png?1719253879",
+        "url": "https://cmd-f.nwplus.io/",
+        "latitude": 49.2608724,
+        "longitude": -123.113952
+    },
+    {
+        "name": "HackKU",
+        "date": "APR 4TH - 6TH",
+        "location": "Lawrence, Kansas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/033/thumb/hackku_mlh_backsplash.png?1719531193",
+        "url": "https://hackku.org/",
+        "latitude": 38.9719137,
+        "longitude": -95.2359403
+    },
+    {
+        "name": "Bitcamp 2025",
+        "date": "APR 11TH - 13TH",
+        "location": "College Park, Maryland",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/061/thumb/bitcamp2025.jpeg?1720115387",
+        "url": "https://bit.camp/",
+        "latitude": 38.980666,
+        "longitude": -76.9369189
+    },
+    {
+        "name": "WEHack",
+        "date": "APR 12TH - 13TH",
+        "location": "Richardson, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/032/thumb/23_24Logo_%282%29_%281%29.jpg?1719018915",
+        "url": "https://wehackutd.com/",
+        "latitude": 32.9481789,
+        "longitude": -96.7297206
+    },
+    {
+        "name": "Hack Your Portfolio",
+        "date": "JUL 12TH - 14TH",
+        "location": "Everywhere, Worldwide",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/020/thumb/devpost-thumbnail.png?1717692894",
+        "url": "https://events.mlh.io/events/11296",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Hack the 6ix",
+        "date": "AUG 2ND - 4TH",
+        "location": "Toronto, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/069/thumb/HT6_-_MHL_Banner_%282%29.png?1721054652",
+        "url": "https://hackthe6ix.com/",
+        "latitude": 43.6534817,
+        "longitude": -79.3839347
+    },
+    {
+        "name": "Global Hack Week: AI/ML",
+        "date": "AUG 9TH - 15TH",
+        "location": "Everywhere, Online",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/022/thumb/devpost_icon.jpg?1718704540",
+        "url": "https://events.mlh.io/events/11453",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Global Hack Week: Cloud",
+        "date": "SEP 5TH - 12TH",
+        "location": "Everywhere, Online",
+        "modality": "Digital Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/023/thumb/devpost_icon.jpg?1718704618",
+        "url": "https://events.mlh.io/events/11455",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Hack the North",
+        "date": "SEP 13TH - 15TH",
+        "location": "Waterloo, Ontario",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/042/thumb/Banner_-_Square-_HTN2024.png?1719462966",
+        "url": "https://hackthenorth.com/",
+        "latitude": 43.4652699,
+        "longitude": -80.5222961
+    },
+    {
+        "name": "HopHacks",
+        "date": "SEP 13TH - 15TH",
+        "location": "Baltimore, Maryland",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/057/thumb/HopHacks_Backsplash.png?1720108442",
+        "url": "https://hophacks.com/",
+        "latitude": 39.2908816,
+        "longitude": -76.610759
+    },
+    {
+        "name": "VTHacks",
+        "date": "SEP 13TH - 15TH",
+        "location": "Blacksburg, Virginia",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/028/thumb/bg.png?1718998139",
+        "url": "https://vthacks.com/",
+        "latitude": 37.2296566,
+        "longitude": -80.4136767
+    },
+    {
+        "name": "HackMTY",
+        "date": "SEP 14TH - 15TH",
+        "location": "Monterrey, Nuevo Leon",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/067/thumb/Screenshot_2024-07-05_at_11.00.22%E2%80%AFPM.png?1720200640",
+        "url": "https://hackmty.com/",
+        "latitude": 25.6802019,
+        "longitude": -100.315258
+    },
+    {
+        "name": "Hack The Mountains 5.0",
+        "date": "SEP 14TH - 15TH",
+        "location": "Rajkot, Gujarat",
+        "modality": "Hybrid, In-Person Focus",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/027/thumb/Cover_Photo_%28MLH%29_300x300px.png?1718988613",
+        "url": "https://hackthemountain.tech/",
+        "latitude": 22.3053263,
+        "longitude": 70.8028377
+    },
+    {
+        "name": "HackWesTX",
+        "date": "SEP 14TH - 15TH",
+        "location": "Lubbock, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/112/thumb/background_%281%29.png?1722608569",
+        "url": "https://www.hackwestx.tech/2024",
+        "latitude": 33.5855677,
+        "longitude": -101.8470215
+    },
+    {
+        "name": "HackRice 14",
+        "date": "SEP 20TH - 22ND",
+        "location": "Houston, Texas",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/039/thumb/IMG_1282.png?1719525009",
+        "url": "https://www.hackrice.com/",
+        "latitude": 29.7589382,
+        "longitude": -95.3676974
+    },
+    {
+        "name": "PennApps",
+        "date": "SEP 20TH - 22ND",
+        "location": "Philadelphia, Pennsylvania",
+        "modality": "In-Person Only",
+        "image": "https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/213/036/thumb/Group_3_%281%29.png?1719258394",
+        "url": "https://2024f.pennapps.com/",
+        "latitude": 39.9527237,
+        "longitude": -75.1635262
+    }
+]

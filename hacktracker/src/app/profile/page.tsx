@@ -1,19 +1,15 @@
 // app/input/page.tsx
 "use client";
 
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { useRouter } from 'next/navigation'; 
 import { useState, useEffect, useRef } from 'react';
 import { fetchLocationSuggestions, LocationSuggestion } from '../utils/location';
 
 const InputPage = () => {
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter(); 
   const [location, setLocation] = useState('');
   const [suggestions, setSuggestions] = useState<LocationSuggestion[]>([]);
   const [selectedLocation, setSelectedLocation] = useState({ city: '', state: '', country: '' });
-  const [startMonth, setStartMonth] = useState('');
-  const [startDay, setStartDay] = useState('');
-  const [endMonth, setEndMonth] = useState('');
-  const [endDay, setEndDay] = useState('');
   const [distance, setDistance] = useState(0);
   const [modality, setModality] = useState('');
 
@@ -40,9 +36,7 @@ const InputPage = () => {
     e.preventDefault();
 
     const userData = {
-      location: selectedLocation,
-      startDate: `${startMonth}-${startDay}`,
-      endDate: `${endMonth}-${endDay}`,
+      location: `${selectedLocation.city}, ${selectedLocation.state}, ${selectedLocation.country}`,
       distance,
       modality,
     };
@@ -60,8 +54,8 @@ const InputPage = () => {
       state: suggestion.address.state || '',
       country: suggestion.address.country,
     });
-    setLocation(suggestion.display_name); // Set the location input to the selected suggestion
-    setSuggestions([]); // Clear suggestions
+    setLocation(suggestion.display_name);
+    setSuggestions([]);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -76,12 +70,6 @@ const InputPage = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
-  // Month options
-  const months = [
-    'January', 'February', 'March', 'April', 'May', 'June', 
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
 
   return (
     <div className="p-4">
@@ -107,40 +95,6 @@ const InputPage = () => {
           </ul>
         )}
         
-        {/* Start Date Dropdowns */}
-        <div className="flex mb-4 items-center">
-          <select value={startMonth} onChange={(e) => setStartMonth(e.target.value)} className="border p-2 mr-2">
-            <option value="">Month</option>
-            {months.map((month, index) => (
-              <option key={index} value={month}>{month}</option>
-            ))}
-          </select>
-          <select value={startDay} onChange={(e) => setStartDay(e.target.value)} className="border p-2 mr-4">
-            <option value="">Day</option>
-            {Array.from({ length: 31 }, (_, i) => (
-              <option key={i} value={i + 1}>{i + 1}</option>
-            ))}
-          </select>
-          <span>Start Date</span>
-        </div>
-
-        {/* End Date Dropdowns */}
-        <div className="flex mb-4 items-center">
-          <select value={endMonth} onChange={(e) => setEndMonth(e.target.value)} className="border p-2 mr-2">
-            <option value="">Month</option>
-            {months.map((month, index) => (
-              <option key={index} value={month}>{month}</option>
-            ))}
-          </select>
-          <select value={endDay} onChange={(e) => setEndDay(e.target.value)} className="border p-2 mr-4">
-            <option value="">Day</option>
-            {Array.from({ length: 31 }, (_, i) => (
-              <option key={i} value={i + 1}>{i + 1}</option>
-            ))}
-          </select>
-          <span>End Date</span>
-        </div>
-
         <input
           type="range"
           min={0}

@@ -1,30 +1,38 @@
-// app/dashboard/page.tsx
 "use client";
 
 import { useEffect, useState } from 'react';
 
 interface Hackathon {
   name: string;
-  date: string;
   location: string;
   modality: string;
   image: string;
   url: string;
+  lat?: number;  // Added latitude
+  lon?: number;  // Added longitude
+  distance?: number;  // Added distance
 }
 
-const monthMap: { [key: string]: number } = {
-  January: 0,
-  February: 1,
-  March: 2,
-  April: 3,
-  May: 4,
-  June: 5,
-  July: 6,
-  August: 7,
-  September: 8,
-  October: 9,
-  November: 10,
-  December: 11,
+const fetchCoordinates = async (location: string) => {
+  const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=9edd9f2be854464ca5be5a32ad50ad7a`);
+  const data = await response.json();
+
+  if (data.results.length > 0) {
+    const { lat, lng } = data.results[0].geometry;
+    return { lat, lon: lng };
+  } else {
+    throw new Error('Location not found');
+  }
+};
+
+const haversineDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+  const toRadians = (angle: number) => (angle * Math.PI) / 180;
+  const R = 6371; // Earth's radius in kilometers
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Distance in kilometers
 };
 
 const Dashboard = () => {
@@ -34,75 +42,30 @@ const Dashboard = () => {
     const userData = JSON.parse(localStorage.getItem('userData') || 'null');
 
     if (userData) {
-      fetch('/mlh.json')
-        .then(response => response.json())
-        .then((data: Hackathon[]) => {
-          const filteredHackathons = data.filter((hackathon: Hackathon) => {
-            const hackathonDates = parseDates(hackathon.date);
-            const startEndDates = parseUserDates(userData.startDate, userData.endDate);
+      fetchCoordinates(userData.location).then(userCoords => {
+        fetch('/mlhfixed.json')
+          .then(response => response.json())
+          .then((data: Hackathon[]) => {
+            const filteredHackathons = data
+              .map(hackathon => {
+                const distanceToHackathon = haversineDistance(userCoords.lat, userCoords.lon, hackathon.lat || 0, hackathon.lon || 0);
+                return { ...hackathon, distance: distanceToHackathon };
+              })
+              .filter(hackathon => {
+                const isModalityMatch = userData.modality === 'both' || userData.modality.toLowerCase() === hackathon.modality.toLowerCase();
+                return hackathon.distance <= userData.distance && isModalityMatch;
+              });
 
-            if (!startEndDates) return false; // Skip if user dates are invalid
+            // Sort hackathons by distance
+            const sortedHackathons = filteredHackathons.sort((a, b) => (a.distance || 0) - (b.distance || 0));
 
-            const [startDate, endDate] = startEndDates;
-
-            const distanceToHackathon = calculateDistance(userData.location, hackathon.location);
-
-            // Check if any hackathon date falls between start and end dates
-            const isDateInRange = hackathonDates.some(hackathonDate =>
-              hackathonDate >= startDate && hackathonDate <= endDate
-            );
-
-            return (
-              distanceToHackathon <= userData.distance &&
-              isDateInRange
-            );
+            setRecommendedHackathons(sortedHackathons);
           });
-
-          setRecommendedHackathons(filteredHackathons);
-        });
+      }).catch(error => {
+        console.error(error);
+      });
     }
   }, []);
-
-  const parseDates = (dateStr: string) => {
-    return dateStr.split(' - ').map(date => {
-      const [month, dayWithSuffix] = date.split(' ');
-
-      // Ensure dayWithSuffix is defined and valid
-      if (!dayWithSuffix) {
-        throw new Error(`Invalid date format: ${date}`);
-      }
-
-      // Remove suffixes and parse day as a number
-      const day = parseInt(dayWithSuffix.replace(/th|st|nd|rd/, ''), 10);
-      const monthIndex = monthMap[month as keyof typeof monthMap];
-
-      // Ensure monthIndex is valid
-      if (monthIndex === undefined || isNaN(day)) {
-        throw new Error(`Invalid month or day in date: ${date}`);
-      }
-
-      // Return a Date object for the current year
-      return new Date(new Date().getFullYear(), monthIndex, day);
-    });
-  };
-
-  const parseUserDates = (startDateStr?: string, endDateStr?: string) => {
-    if (!startDateStr || !endDateStr) return null;
-
-    const startDateArray = parseDates(startDateStr);
-    const endDateArray = parseDates(endDateStr);
-
-    if (!startDateArray.length || !endDateArray.length) return null;
-
-    const startDate = startDateArray[0];
-    const endDate = endDateArray[0];
-
-    return [startDate, endDate] as [Date, Date];
-  };
-
-  const calculateDistance = (userLocation: string, hackathonLocation: string) => {
-    return 0; // Placeholder for distance calculation logic
-  };
 
   return (
     <div className="p-4">
@@ -111,13 +74,12 @@ const Dashboard = () => {
         <ul>
           {recommendedHackathons.map((hackathon, index) => (
             <li key={index} className="mb-4 border p-4 rounded">
+              <img src={hackathon.image} alt={hackathon.name} className="w-full h-auto" />
               <h2 className="font-bold">{hackathon.name}</h2>
-              <p>Date: {hackathon.date}</p>
               <p>Location: {hackathon.location}</p>
               <p>Modality: {hackathon.modality}</p>
-              <a href={hackathon.url} target="_blank" rel="noopener noreferrer">
-                <img src={hackathon.image} alt={hackathon.name} className="w-full h-auto" />
-              </a>
+              <p>Distance: {hackathon.distance?.toFixed(2)} km</p>
+              <a href={hackathon.url} target="_blank" rel="noopener noreferrer">Apply Here</a>
             </li>
           ))}
         </ul>
