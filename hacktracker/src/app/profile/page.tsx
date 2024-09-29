@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Mark this component as a client component
 
 import { useRouter } from 'next/navigation'; 
 import { useState, useEffect, useRef } from 'react';
@@ -10,7 +10,7 @@ const InputPage = () => {
   const [suggestions, setSuggestions] = useState<LocationSuggestion[]>([]);
   const [selectedLocation, setSelectedLocation] = useState({ city: '', state: '', country: '' });
   const [distance, setDistance] = useState(0);
-  const [modality, setModality] = useState('');
+  const [isEditingDistance, setIsEditingDistance] = useState(false);
 
   const suggestionsRef = useRef<HTMLUListElement | null>(null);
 
@@ -33,11 +33,9 @@ const InputPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const userData = {
-      location: `${selectedLocation.city}, ${selectedLocation.state}, ${selectedLocation.country}`,
+      location: `${selectedLocation.city ? selectedLocation.city + ', ' : ''}${selectedLocation.state}${selectedLocation.country ? ', ' + selectedLocation.country : ''}`,
       distance,
-      modality,
     };
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -45,12 +43,14 @@ const InputPage = () => {
   };
 
   const handleSuggestionClick = (suggestion: LocationSuggestion) => {
-    setSelectedLocation({
-      city: suggestion.address.city || suggestion.address.town || suggestion.address.village || '',
-      state: suggestion.address.state || '',
-      country: suggestion.address.country,
-    });
-    setLocation(suggestion.display_name);
+    const city = suggestion.address.city || suggestion.address.town || suggestion.address.village || '';
+    const state = suggestion.address.state || '';
+    const country = suggestion.address.country || '';
+
+    setSelectedLocation({ city, state, country });
+    setLocation(`${city ? city + ', ' : ''}${state}${country ? ', ' + country : ''}`);
+    
+    // Clear suggestions and reset the input value
     setSuggestions([]);
   };
 
@@ -66,6 +66,23 @@ const InputPage = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleDistanceChange = (value: number) => {
+    if (value >= 0 && value <= 5000) {
+      setDistance(value);
+    }
+  };
+
+  const handleDistanceEditToggle = () => {
+    setIsEditingDistance(!isEditingDistance);
+  };
+
+  const handleDistanceInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    if (value >= 0 && value <= 5000) {
+      setDistance(value);
+    }
+  };
 
   return (
     <main className="relative p-4">
@@ -92,15 +109,33 @@ const InputPage = () => {
           />
           {suggestions.length > 0 && (
             <ul ref={suggestionsRef} className="border bg-white p-2 rounded mb-4">
-              {suggestions.map((suggestion) => (
-                <li
-                  key={suggestion.place_id}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                  className="cursor-pointer hover:bg-gray-200 p-1"
-                >
-                  {suggestion.display_name}
-                </li>
-              ))}
+              {suggestions.map((suggestion) => {
+                const city = suggestion.address.city || suggestion.address.town || suggestion.address.village || '';
+                const state = suggestion.address.state || '';
+                const country = suggestion.address.country || '';
+
+                // Build display name ensuring no leading commas and correct formatting
+                let displayName = '';
+                if (city) {
+                  displayName += city;
+                }
+                if (state) {
+                  displayName += (displayName ? `, ${state}` : state);
+                }
+                if (country) {
+                  displayName += (displayName ? `, ${country}` : country);
+                }
+
+                return (
+                  <li
+                    key={`${city}-${state}-${country}`}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    className="cursor-pointer hover:bg-gray-200 p-1"
+                  >
+                    {displayName}
+                  </li>
+                );
+              })}
             </ul>
           )}
           
@@ -109,20 +144,30 @@ const InputPage = () => {
             min={0}
             max={5000}
             value={distance}
-            onChange={(e) => setDistance(Number(e.target.value))}
-            className="mb-4 w-full custom-range"
+            onChange={(e) => handleDistanceChange(Number(e.target.value))}
+            className="mb-4 w-full"
           />
-          <label className="block mb-4 text-white">Distance willing to travel: {distance} km</label>
-          <select
-            value={modality}
-            onChange={(e) => setModality(e.target.value)}
-            className="border p-2 mb-4 w-full"
-          >
-            <option value="">Please select modality</option>
-            <option value="both">Both</option>
-            <option value="virtual">Virtual Only</option>
-            <option value="in-person">In Person Only</option>
-          </select>
+          <label className="block mb-2 text-white">
+            Distance willing to travel: 
+            {isEditingDistance ? (
+              <input
+                type="number"
+                value={distance}
+                onChange={handleDistanceInputChange}
+                onBlur={handleDistanceEditToggle} // Stop editing on blur
+                className="text-white bg-transparent border-b border-white w-20 ml-2"
+                onFocus={(e) => e.target.select()} // Select input value on focus
+              />
+            ) : (
+              <span 
+                onClick={handleDistanceEditToggle} // Make it editable on click
+                className="cursor-pointer ml-2"
+              >
+                {distance} km
+              </span>
+            )}
+          </label>
+          
           <button type="submit" className="rounded-full font-bold bg-[#e63946] text-white py-3 px-10 w-full shadow hover:border-white-600 hover:bg-[#d62839]">
             Save   
           </button>
