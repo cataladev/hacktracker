@@ -8,3 +8,29 @@ body {
     background-color: #000000;
     color: #333;
 }
+
+
+.custom-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff0000; /* Change this to your desired color */
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .custom-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff0000; /* Change this to your desired color */
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .custom-range::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff0000; /* Change this to your desired color */
+    border-radius: 50%;
+    cursor: pointer;
+  }

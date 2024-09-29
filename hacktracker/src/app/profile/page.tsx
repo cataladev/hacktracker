@@ -1,4 +1,3 @@
-// app/input/page.tsx
 "use client";
 
 import { useRouter } from 'next/navigation'; 
@@ -41,10 +40,7 @@ const InputPage = () => {
       modality,
     };
 
-    // Save user data in localStorage
     localStorage.setItem('userData', JSON.stringify(userData));
-
-    // Redirect to dashboard
     router.push('/dashboard');
   };
 
@@ -72,53 +68,67 @@ const InputPage = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="border p-2 mb-4 w-full"
-          placeholder="Enter your location"
-        />
-        {suggestions.length > 0 && (
-          <ul ref={suggestionsRef} className="border bg-white p-2 rounded">
-            {suggestions.map((suggestion) => (
-              <li
-                key={suggestion.place_id}
-                onClick={() => handleSuggestionClick(suggestion)}
-                className="cursor-pointer hover:bg-gray-200 p-1"
-              >
-                {suggestion.display_name}
-              </li>
-            ))}
-          </ul>
-        )}
-        
-        <input
-          type="range"
-          min={0}
-          max={5000}
-          value={distance}
-          onChange={(e) => setDistance(Number(e.target.value))}
-          className="mb-4"
-        />
-        <label>Distance: {distance} km</label>
-        <select
-          value={modality}
-          onChange={(e) => setModality(e.target.value)}
-          className="border p-2 mb-4 w-full"
+    <main className="relative p-4">
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute top-0 left-0 z-[-1] w-full h-full object-cover"
+      >
+        <source src="/spacevideo.webm" type="video/webm" />
+      </video>
+      <div className="flex items-center justify-center min-h-screen">
+        <form 
+          onSubmit={handleSubmit} 
+          className="p-8 rounded border border-white transition duration-300 hover:border-red-600 shadow-md w-full max-w-md animate-fadeIn" 
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
         >
-          <option value="">Please select modality</option>
-          <option value="both">Both</option>
-          <option value="virtual">Virtual Only</option>
-          <option value="in-person">In Person Only</option>
-        </select>
-        <button type="submit" className="bg-blue-500 text-white p-2">
-          Save
-        </button>
-      </form>
-    </div>
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="border p-2 mb-4 w-full"
+            placeholder="Enter your location"
+          />
+          {suggestions.length > 0 && (
+            <ul ref={suggestionsRef} className="border bg-white p-2 rounded mb-4">
+              {suggestions.map((suggestion) => (
+                <li
+                  key={suggestion.place_id}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  className="cursor-pointer hover:bg-gray-200 p-1"
+                >
+                  {suggestion.display_name}
+                </li>
+              ))}
+            </ul>
+          )}
+          
+          <input
+            type="range"
+            min={0}
+            max={5000}
+            value={distance}
+            onChange={(e) => setDistance(Number(e.target.value))}
+            className="mb-4 w-full custom-range"
+          />
+          <label className="block mb-4 text-white">Distance willing to travel: {distance} km</label>
+          <select
+            value={modality}
+            onChange={(e) => setModality(e.target.value)}
+            className="border p-2 mb-4 w-full"
+          >
+            <option value="">Please select modality</option>
+            <option value="both">Both</option>
+            <option value="virtual">Virtual Only</option>
+            <option value="in-person">In Person Only</option>
+          </select>
+          <button type="submit" className="rounded-full font-bold bg-[#e63946] text-white py-3 px-10 w-full shadow hover:border-white-600 hover:bg-[#d62839]">
+            Save   
+          </button>
+        </form>
+      </div>
+    </main>
   );
 };
 
