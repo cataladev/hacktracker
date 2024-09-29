@@ -12,7 +12,16 @@ const PictureUrls = [
 
 export default function Home() {
   return (
-    <main className="p-4">
+    <main className="relative p-4">
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute top-0 left-0 z-[-1] w-full h-full object-cover"
+      >
+        <source src="/spacevideo.webm" type="video/webm" />
+      </video>
+
       <div className="flex flex-wrap justify-center w-full">
         {PictureUrls.map((image, index) => (
           <div key={index} className="m-4 text-center max-w-2xl">
@@ -51,7 +60,7 @@ export default function Home() {
         ))}
       </div>
       <div className="flex justify-center mt-4">
-        <Link href="/dashboard">
+        <Link href="/profile">
           <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:border-white-600 hover:bg-[#d62839] animate-fadeIn">
             Start Now!
           </button>
