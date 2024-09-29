@@ -1,117 +1,131 @@
-"use client"; // Marking this component as a client component
+// app/dashboard/page.tsx
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Sidebar from '../components/sidebar';
-import { haversineDistance } from '../components/utils'; // Adjust the path as needed
+import { useEffect, useState } from 'react';
 
-const PictureUrls = [
-    {
-        title: "HACK TRACKER",
-        description: "Hack Tracker",
-        description2: "Here are our recommendations based on your information:"
-    },
-];
+interface Hackathon {
+  name: string;
+  date: string;
+  location: string;
+  modality: string;
+  image: string;
+  url: string;
+}
 
-// Function to get coordinates for a city/state using the Nominatim API
-const getCoordinatesForCity = async (location: string): Promise<[number, number] | null> => {
-    try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`);
-        const data = await response.json();
-        if (data.length > 0) {
-            const { lat, lon } = data[0];
-            return [parseFloat(lat), parseFloat(lon)];
-        }
-    } catch (error) {
-        console.error("Error fetching coordinates:", error);
+const monthMap: { [key: string]: number } = {
+  January: 0,
+  February: 1,
+  March: 2,
+  April: 3,
+  May: 4,
+  June: 5,
+  July: 6,
+  August: 7,
+  September: 8,
+  October: 9,
+  November: 10,
+  December: 11,
+};
+
+const Dashboard = () => {
+  const [recommendedHackathons, setRecommendedHackathons] = useState<Hackathon[]>([]);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('userData') || 'null');
+
+    if (userData) {
+      fetch('/mlh.json')
+        .then(response => response.json())
+        .then((data: Hackathon[]) => {
+          const filteredHackathons = data.filter((hackathon: Hackathon) => {
+            const hackathonDates = parseDates(hackathon.date);
+            const startEndDates = parseUserDates(userData.startDate, userData.endDate);
+
+            if (!startEndDates) return false; // Skip if user dates are invalid
+
+            const [startDate, endDate] = startEndDates;
+
+            const distanceToHackathon = calculateDistance(userData.location, hackathon.location);
+
+            // Check if any hackathon date falls between start and end dates
+            const isDateInRange = hackathonDates.some(hackathonDate =>
+              hackathonDate >= startDate && hackathonDate <= endDate
+            );
+
+            return (
+              distanceToHackathon <= userData.distance &&
+              isDateInRange
+            );
+          });
+
+          setRecommendedHackathons(filteredHackathons);
+        });
     }
-    return null;
+  }, []);
+
+  const parseDates = (dateStr: string) => {
+    return dateStr.split(' - ').map(date => {
+      const [month, dayWithSuffix] = date.split(' ');
+
+      // Ensure dayWithSuffix is defined and valid
+      if (!dayWithSuffix) {
+        throw new Error(`Invalid date format: ${date}`);
+      }
+
+      // Remove suffixes and parse day as a number
+      const day = parseInt(dayWithSuffix.replace(/th|st|nd|rd/, ''), 10);
+      const monthIndex = monthMap[month as keyof typeof monthMap];
+
+      // Ensure monthIndex is valid
+      if (monthIndex === undefined || isNaN(day)) {
+        throw new Error(`Invalid month or day in date: ${date}`);
+      }
+
+      // Return a Date object for the current year
+      return new Date(new Date().getFullYear(), monthIndex, day);
+    });
+  };
+
+  const parseUserDates = (startDateStr?: string, endDateStr?: string) => {
+    if (!startDateStr || !endDateStr) return null;
+
+    const startDateArray = parseDates(startDateStr);
+    const endDateArray = parseDates(endDateStr);
+
+    if (!startDateArray.length || !endDateArray.length) return null;
+
+    const startDate = startDateArray[0];
+    const endDate = endDateArray[0];
+
+    return [startDate, endDate] as [Date, Date];
+  };
+
+  const calculateDistance = (userLocation: string, hackathonLocation: string) => {
+    return 0; // Placeholder for distance calculation logic
+  };
+
+  return (
+    <div className="p-4">
+      <h1>Recommended Hackathons</h1>
+      {recommendedHackathons.length > 0 ? (
+        <ul>
+          {recommendedHackathons.map((hackathon, index) => (
+            <li key={index} className="mb-4 border p-4 rounded">
+              <h2 className="font-bold">{hackathon.name}</h2>
+              <p>Date: {hackathon.date}</p>
+              <p>Location: {hackathon.location}</p>
+              <p>Modality: {hackathon.modality}</p>
+              <a href={hackathon.url} target="_blank" rel="noopener noreferrer">
+                <img src={hackathon.image} alt={hackathon.name} className="w-full h-auto" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No hackathons found for your criteria.</p>
+      )}
+    </div>
+  );
 };
 
-const DashboardPage: React.FC = () => {
-    const [hackathons, setHackathons] = useState<any[]>([]);
-    const [filteredHackathons, setFilteredHackathons] = useState<any[]>([]);
-    const [location, setLocation] = useState('');
-    const [distance, setDistance] = useState(0);
-    const [isVirtual, setIsVirtual] = useState(false);
-    const [isInPerson, setIsInPerson] = useState(false);
-
-    useEffect(() => {
-        const fetchHackathons = async () => {
-            const response = await fetch('/mlh.json');
-            const data = await response.json();
-            setHackathons(data);
-        };
-        
-        fetchHackathons();
-    }, []);
-
-    useEffect(() => {
-        const filterHackathons = async () => {
-            if (location && distance > 0) {
-                const userCoordinates = await getCoordinatesForCity(location);
-                if (userCoordinates) {
-                    const filtered = await Promise.all(
-                        hackathons.map(async (hackathon) => {
-                            const [city, state] = hackathon.location.split(', ').slice(0, 2);
-                            const coordinates = await getCoordinatesForCity(`${city}, ${state}`);
-
-                            if (coordinates) {
-                                const dist = haversineDistance(userCoordinates, coordinates);
-                                const modalityMatches = (isVirtual && hackathon.modality.includes("Virtual")) || 
-                                                        (isInPerson && hackathon.modality.includes("In-Person"));
-                                return dist <= distance && modalityMatches ? hackathon : null;
-                            }
-                            return null;
-                        })
-                    );
-
-                    setFilteredHackathons(filtered.filter(h => h !== null)); // Remove nulls
-                }
-            } else {
-                setFilteredHackathons(hackathons);
-            }
-        };
-
-        filterHackathons();
-    }, [location, distance, isVirtual, isInPerson, hackathons]);
-
-    return (
-        <main className="p-4 flex">
-            <Sidebar 
-                setLocation={setLocation} 
-                setDistance={setDistance} 
-                setIsVirtual={setIsVirtual} 
-                setIsInPerson={setIsInPerson} 
-                isVirtual={isVirtual}
-                isInPerson={isInPerson}
-            />
-            <div className="flex-grow">
-                <div className="flex flex-wrap justify-center w-full">
-                    {PictureUrls.map((image, index) => (
-                        <div key={index} className="m-4 text-center max-w-2xl">
-                            <p style={{ fontWeight: 'bold', fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }}>
-                                {image.description}
-                            </p>
-                            <p style={{ fontFamily: 'Tahoma', fontSize: '20px', color: "#a8dadc" }}>
-                                {image.description2}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-                <div className="flex flex-wrap justify-center w-full">
-                    {filteredHackathons.map((hackathon, index) => (
-                        <div key={index} className="hackathon-card m-4">
-                            <img src={hackathon.image} alt={hackathon.name} />
-                            <h3>{hackathon.name}</h3>
-                            <p>{hackathon.date}</p>
-                            <p>{hackathon.location}</p>
-                            <a href={hackathon.url} target="_blank" rel="noopener noreferrer">Apply</a>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </main>
-    );
-};
-
-export default DashboardPage;
+export default Dashboard;
