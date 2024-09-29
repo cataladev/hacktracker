@@ -4,9 +4,8 @@ const PictureUrls = [
   {
     url: "https://utfs.io/f/6f972ORmLdsFhAQHM5u7PdF3GLyes9zIiBUtnDSvJkRZq1mo",
     title: "HACK TRACKER",
-    description: "HACK TRACKER",
-    description2:
-      "Are you ready to unleash your creativity and technical skills? Our platform connects you with hackathons tailored just for you! By analyzing your location, educational background, and interests, we curate a list of exciting hackathon events where you can collaborate with like-minded individuals, innovate groundbreaking solutions, and take your skills to the next level. Whether you're a seasoned developer, a design enthusiast, or a first-time participant, we have opportunities that fit your profile. Join us to network with industry leaders, showcase your talents, and even win fantastic prizes! Your next big challenge is just a click away—lets hack the future together!",
+    description:
+      "Discover hackathons tailored to your location, preferred modality, and travel distance—connect, innovate, and showcase your talent!",
   },
 ];
 
@@ -38,13 +37,13 @@ export default function Home() {
                 style={{
                   fontWeight: "bold",
                   fontFamily: "Poppins",
-                  fontSize: "40px",
+                  fontSize: "60px",
                   color: "#ffffff",
                   padding: "15px",
                 }}
                 className="text-sm text-white-600 mb-2 animate-fadeIn"
               >
-                {image.description}
+                {image.title}
               </p>
               <p
                 style={{
@@ -54,7 +53,7 @@ export default function Home() {
                 }}
                 className="text-sm w-full text-white-600 mb-2 animate-fadeIn"
               >
-                {image.description2}
+                {image.description}
               </p>
             </div>
           </div>
