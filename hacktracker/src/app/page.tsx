@@ -4,7 +4,7 @@ const PictureUrls = [
   {
     url: "https://utfs.io/f/6f972ORmLdsFhAQHM5u7PdF3GLyes9zIiBUtnDSvJkRZq1mo",
     title: "HACK TRACKER",
-    description: "Welcome to HACK TRACKER",
+    description: "HACK TRACKER",
     description2:
       "Are you ready to unleash your creativity and technical skills? Our platform connects you with hackathons tailored just for you! By analyzing your location, educational background, and interests, we curate a list of exciting hackathon events where you can collaborate with like-minded individuals, innovate groundbreaking solutions, and take your skills to the next level. Whether you're a seasoned developer, a design enthusiast, or a first-time participant, we have opportunities that fit your profile. Join us to network with industry leaders, showcase your talents, and even win fantastic prizes! Your next big challenge is just a click away—lets hack the future together!",
   },
@@ -27,9 +27,10 @@ export default function Home() {
               <p
                 style={{
                   fontWeight: "bold",
-                  fontFamily: "Tahoma",
-                  fontSize: "20px",
+                  fontFamily: "Poppins",
+                  fontSize: "40px",
                   color: "#a8dadc",
+                  padding: "15px",
                 }}
                 className="text-sm text-teal-600 mb-2"
               >
@@ -37,7 +38,7 @@ export default function Home() {
               </p>
               <p
                 style={{
-                  fontFamily: "Tahoma",
+                  fontFamily: "hind",
                   fontSize: "20px",
                   color: "#a8dadc",
                 }}
@@ -51,7 +52,7 @@ export default function Home() {
       </div>
       <div className="flex justify-center mt-4">
         <Link href="/dashboard">
-          <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:bg-[#d62839]">
+          <button className="rounded-full bg-[#e63946] text-white font-bold py-3 px-10 shadow hover:bg-[#d62839] animate-fadeIn">
             Start Now!
           </button>
         </Link>
