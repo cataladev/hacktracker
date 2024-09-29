@@ -8,9 +8,9 @@ interface Hackathon {
   modality: string;
   image: string;
   url: string;
-  lat?: number;  // Added latitude
-  lon?: number;  // Added longitude
-  distance?: number;  // Added distance
+  latitude?: number;
+  longitude?: number;
+  distance?: number;
 }
 
 const fetchCoordinates = async (location: string) => {
@@ -37,6 +37,7 @@ const haversineDistance = (lat1: number, lon1: number, lat2: number, lon2: numbe
 
 const Dashboard = () => {
   const [recommendedHackathons, setRecommendedHackathons] = useState<Hackathon[]>([]);
+  const [visibleCount, setVisibleCount] = useState(3); // Start with 3 visible hackathons
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData') || 'null');
@@ -48,7 +49,7 @@ const Dashboard = () => {
           .then((data: Hackathon[]) => {
             const filteredHackathons = data
               .map(hackathon => {
-                const distanceToHackathon = haversineDistance(userCoords.lat, userCoords.lon, hackathon.lat || 0, hackathon.lon || 0);
+                const distanceToHackathon = haversineDistance(userCoords.lat, userCoords.lon, hackathon.latitude || 0, hackathon.longitude || 0);
                 return { ...hackathon, distance: distanceToHackathon };
               })
               .filter(hackathon => {
@@ -56,10 +57,7 @@ const Dashboard = () => {
                 return hackathon.distance <= userData.distance && isModalityMatch;
               });
 
-            // Sort hackathons by distance
-            const sortedHackathons = filteredHackathons.sort((a, b) => (a.distance || 0) - (b.distance || 0));
-
-            setRecommendedHackathons(sortedHackathons);
+            setRecommendedHackathons(filteredHackathons);
           });
       }).catch(error => {
         console.error(error);
@@ -67,25 +65,38 @@ const Dashboard = () => {
     }
   }, []);
 
+  const handleViewMore = () => {
+    setVisibleCount(prevCount => prevCount + 3);
+  };
+
+  const handleViewLess = () => {
+    setVisibleCount(3);
+  };
+
   return (
     <div className="p-4">
-      <h1>Recommended Hackathons</h1>
-      {recommendedHackathons.length > 0 ? (
-        <ul>
-          {recommendedHackathons.map((hackathon, index) => (
-            <li key={index} className="mb-4 border p-4 rounded">
-              <img src={hackathon.image} alt={hackathon.name} className="w-full h-auto" />
+      <h1 className="text-white">Recommended Hackathons</h1>
+      <ul>
+        {recommendedHackathons.slice(0, visibleCount).map((hackathon, index) => (
+          <li key={index} className="mb-4 flex border p-4 rounded bg-gray-800">
+            <img src={hackathon.image} alt={hackathon.name} className="w-1/5 h-auto mr-4" />
+            <div className="text-white">
               <h2 className="font-bold">{hackathon.name}</h2>
               <p>Location: {hackathon.location}</p>
               <p>Modality: {hackathon.modality}</p>
               <p>Distance: {hackathon.distance?.toFixed(2)} km</p>
-              <a href={hackathon.url} target="_blank" rel="noopener noreferrer">Apply Here</a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No hackathons found for your criteria.</p>
+              <a href={hackathon.url} target="_blank" rel="noopener noreferrer" className="text-blue-500">Apply Here</a>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {visibleCount < recommendedHackathons.length && (
+        <button onClick={handleViewMore} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">View More</button>
       )}
+      {visibleCount > 3 && (
+        <button onClick={handleViewLess} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">View Less</button>
+      )}
+      {recommendedHackathons.length === 0 && <p className="text-white">No hackathons found for your criteria.</p>}
     </div>
   );
 };
