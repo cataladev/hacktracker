@@ -36,7 +36,7 @@ export default function Home() {
               <p
                 style={{
                   fontWeight: "bold",
-                  fontFamily: "chakra", 
+                  fontFamily: "chakra", // Updated font family
                   fontSize: "65px",
                   color: "#ffffff",
                   padding: "15px",

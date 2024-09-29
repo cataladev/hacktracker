@@ -3,12 +3,15 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import json
 
-service = Service(r'C:\Users\ferna\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe') 
+# Set up the web driver (update the path to where you placed ChromeDriver)
+service = Service(r'C:\Users\ferna\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe') #change based on path
 driver = webdriver.Chrome(service=service)
 
+# Open the webpage
 driver.get('https://mlh.io/seasons/2025/events')
 
-events = driver.find_elements(By.CLASS_NAME, 'event')  
+# Find all event cards
+events = driver.find_elements(By.CLASS_NAME, 'event')  # Update 'event' to the actual class name
 
 event_data = []
 for event in events:
@@ -46,10 +49,13 @@ for event in events:
         'url': url
     })
 
+# Print the collected data for debugging
 print(json.dumps(event_data, indent=4))
 
+# Save the data to a JSON file
 output_file = r'C:\Users\ferna\Downloads'
 
+# Save the data to a JSON file with error handling
 try:
     with open(output_file, 'w') as f:
         json.dump(event_data, f, indent=4)
@@ -57,4 +63,5 @@ try:
 except Exception as e:
     print(f"Error writing to file: {e}")
 
+# Close the web driver
 driver.quit()

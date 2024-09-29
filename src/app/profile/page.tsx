@@ -1,4 +1,4 @@
-"use client"; 
+"use client"; // Mark this component as a client component
 
 import { useRouter } from 'next/navigation'; 
 import { useState, useEffect, useRef } from 'react';
@@ -11,11 +11,11 @@ const InputPage = () => {
   const [selectedLocation, setSelectedLocation] = useState({ city: '', state: '', country: '' });
   const [distance, setDistance] = useState(0);
   const [isEditingDistance, setIsEditingDistance] = useState(false);
-  
+
   const suggestionsRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
-    if (location && (selectedLocation.city === '' && selectedLocation.state === '' && selectedLocation.country === '')) {
+    if (location) {
       const fetchData = async () => {
         try {
           const results = await fetchLocationSuggestions(location);
@@ -29,7 +29,7 @@ const InputPage = () => {
     } else {
       setSuggestions([]);
     }
-  }, [location, selectedLocation]);
+  }, [location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,18 +47,9 @@ const InputPage = () => {
     const state = suggestion.address.state || '';
     const country = suggestion.address.country || '';
 
-    setSelectedLocation((prev) => {
-      if (
-        prev.city !== city ||
-        prev.state !== state ||
-        prev.country !== country
-      ) {
-        setLocation(`${city ? city + ', ' : ''}${state}${country ? ', ' + country : ''}`);
-        setSuggestions([]);
-        return { city, state, country };
-      }
-      return prev;
-    });
+    setSelectedLocation({ city, state, country });
+    setLocation(`${city ? city + ', ' : ''}${state}${country ? ', ' + country : ''}`);
+    setSuggestions([]);
   };
 
   const handleClickOutside = (event: MouseEvent) => {

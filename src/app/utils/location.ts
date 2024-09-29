@@ -1,4 +1,4 @@
-
+// app/utils/location.ts
 export interface LocationSuggestion {
     place_id: string;
     display_name: string;
@@ -19,6 +19,6 @@ export interface LocationSuggestion {
     }
   
     const data: LocationSuggestion[] = await response.json();
-    return data; 
+    return data; // Return the list of locations
   };
   

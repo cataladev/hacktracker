@@ -1,4 +1,4 @@
-
+// utils/geocode.ts
 export const fetchCoordinates = async (location: string) => {
     const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=9edd9f2be854464ca5be5a32ad50ad7a`);
     const data = await response.json();

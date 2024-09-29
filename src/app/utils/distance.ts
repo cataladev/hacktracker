@@ -1,4 +1,4 @@
-
+// utils/distance.ts
 export const haversineDistance = (
     lat1: number,
     lon1: number,
@@ -7,7 +7,7 @@ export const haversineDistance = (
   ): number => {
     const toRadians = (angle: number) => (angle * Math.PI) / 180;
   
-    const R = 6371;
+    const R = 6371; // Radius of the Earth in kilometers
     const dLat = toRadians(lat2 - lat1);
     const dLon = toRadians(lon2 - lon1);
   
@@ -18,6 +18,6 @@ export const haversineDistance = (
     
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   
-    return R * c; 
+    return R * c; // Distance in kilometers
   };
   
