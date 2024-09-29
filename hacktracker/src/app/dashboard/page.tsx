@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 interface Hackathon {
   name: string;
+  date: string;
   location: string;
   modality: string;
   image: string;
@@ -52,16 +53,17 @@ const Dashboard = () => {
                 const distanceToHackathon = haversineDistance(userCoords.lat, userCoords.lon, hackathon.latitude || 0, hackathon.longitude || 0);
                 return { ...hackathon, distance: distanceToHackathon };
               })
-              .filter(hackathon => {
-                const isModalityMatch = userData.modality === 'both' || userData.modality.toLowerCase() === hackathon.modality.toLowerCase();
-                return hackathon.distance <= userData.distance && isModalityMatch;
-              });
+              .filter(hackathon => hackathon.distance <= userData.distance); // Only filter by distance
 
             setRecommendedHackathons(filteredHackathons);
+          }).catch(error => {
+            console.error("Error fetching hackathon data:", error);
           });
       }).catch(error => {
-        console.error(error);
+        console.error("Error fetching coordinates:", error);
       });
+    } else {
+      console.error("User data is not available.");
     }
   }, []);
 
@@ -82,9 +84,9 @@ const Dashboard = () => {
             <img src={hackathon.image} alt={hackathon.name} className="w-1/5 h-auto mr-4" />
             <div className="text-white">
               <h2 className="font-bold">{hackathon.name}</h2>
-              <p>Location: {hackathon.location}</p>
+              <p>Dates: {hackathon.date}</p>
               <p>Modality: {hackathon.modality}</p>
-              <p>Distance: {hackathon.distance?.toFixed(2)} km</p>
+              <p>Location: {hackathon.location}</p>
               <a href={hackathon.url} target="_blank" rel="noopener noreferrer" className="text-blue-500">Apply Here</a>
             </div>
           </li>
