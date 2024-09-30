@@ -1,29 +1,45 @@
-# Create T3 App
+# Hackathon Finder
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Overview
+Hackathon Finder is a web application designed to help tech enthusiasts discover hackathons that match their skills and interests. Users can find hackathons tailored to their profiles by entering personal information and preferences, including local events and those they are willing to travel to.
 
-## What's next? How do I make an app with this?
+## Features
+- **Personalized Hackathon Recommendations**: Users input their skills and interests to receive tailored suggestions.
+- **Comprehensive Listings**: Browse a searchable list of upcoming hackathons, complete with details such as date, location, sponsors, and costs.
+- **User Profiles (hopefully...)**: Create a profile to save preferences and track upcoming events.
+- **Travel Preferences**: Specify locations users are willing to travel to, expanding their options for hackathons.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## User Input
+Users will provide:
+- Location
+- **Travel Preferences**: Locations users are willing to travel to for hackathons
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Technologies
+### Frontend
+- **React**: For building interactive user interfaces.
+- **Tailwind CSS**: For responsive and customizable styling.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Backend
+- **Next.js**: For server-side rendering and routing.
+- **tRPC**: For end-to-end type-safe APIs.
 
-## Learn More
+### Database
+- **PostgreSQL**: As the SQL database, managed with Prisma for ORM.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Hosting
+- **Vercel**: Deployment in the future.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Future Enhancements
+- Implement a recommendation engine based on user profiles.
+- Allow users to leave reviews and ratings for hackathons.
+- Explore integration of travel options (e.g., flight and hotel prices) for distant hackathons.
+- Registration for users, with multiple authentication features.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## If you want to collaborate..
+To contribute to Hackathon Finder:
+1. Clone the repository.
+2. Install dependencies.
+3. Set up your development environment.
+4. Start building!
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Feel free to contribute or reach out with any questions! Let’s make hackathons accessible to all tech enthusiasts!
