@@ -1,13 +1,13 @@
-# Hackathon Finder
+# Hack Tracker
 
 ## Overview
-Hackathon Finder is a web application designed to help tech enthusiasts discover hackathons that match their skills and interests. Users can find hackathons tailored to their profiles by entering personal information and preferences, including local events and those they are willing to travel to.
+Hack Tracker is a web application designed to help tech enthusiasts discover hackathons that match their skills and interests. Users can find hackathons tailored to their profiles by entering personal information and preferences, including local events and those they are willing to travel to.
 
 ## Features
 - **Personalized Hackathon Recommendations**: Users input their skills and interests to receive tailored suggestions.
 - **Comprehensive Listings**: Browse a searchable list of upcoming hackathons, complete with details such as date, location, sponsors, and costs.
-- **User Profiles (hopefully...)**: Create a profile to save preferences and track upcoming events.
-- **Travel Preferences**: Specify locations users are willing to travel to, expanding their options for hackathons.
+- **User Profiles(wip)**: Create a profile to save preferences and track upcoming events.
+- **Travel Preferences(wip)**: Specify locations users are willing to travel to, expanding their options for hackathons.
 
 ## User Input
 Users will provide:
